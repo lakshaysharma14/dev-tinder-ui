@@ -28,5 +28,22 @@ Episode 15 :
 - Interested/Ignore Feed
 - Signup
 - E2E Testing
-
-
+- =========================
+- Deploying on AWS
+    1. Sign up on AWS
+    2. Launch EC2 Instance
+    3. chmod 400 <secret>.pem
+    4. ssh -i "dev-tinder-secrets.pem" ubuntu@ec2-13-53-186-14.eu-north-1.compute.amazonaws.com
+    5. Install node
+    6. Git Clone dev tinder projects
+        - Deploying Frontend
+            1. npm install
+            2. npm build
+            3. sudo apt update
+            4. sudo apt install nginx
+            5. sudo systemctl start nginx
+            6. sudo systemctl enable nginx
+            7. Copy code fro dist to /var/www/html/
+            8. sudo scp -r dist/* /var/www/html
+            9. Enable Port :80 of your Instance
+            10. Modify the BASE_URL in frontend to point to /api 
